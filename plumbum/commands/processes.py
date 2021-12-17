@@ -316,8 +316,10 @@ def run_proc(proc, retcode, timeout=None):
     if not stderr:
         stderr = six.b("")
     if getattr(proc, "custom_encoding", None):
-        stdout = stdout.decode(proc.custom_encoding, "ignore")
-        stderr = stderr.decode(proc.custom_encoding, "ignore")
+        if hasattr(stdout, "decode"):
+            stdout = stdout.decode(proc.custom_encoding, "ignore")
+        if hasattr(stderr, "decode"):
+            stderr = stderr.decode(proc.custom_encoding, "ignore")
 
     return _check_process(proc, retcode, timeout, stdout, stderr)
 
