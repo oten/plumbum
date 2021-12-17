@@ -53,10 +53,9 @@ from plumbum.commands import (
 )
 from plumbum.machines import BaseRemoteMachine, PuttyMachine, SshMachine, local
 from plumbum.path import LocalPath, Path, RemotePath
-from plumbum.version import version
 
 __author__ = "Tomer Filiba (tomerfiliba@gmail.com)"
-__version__ = version
+__version__ = '1.7.1'
 
 __all__ = (
     "BG",
